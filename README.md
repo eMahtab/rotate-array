@@ -56,9 +56,10 @@ Runtime Complexity = O(kn)
 Space Complexity   = O(1)
 ```
 
-### Implementation 2 : Runtime = (n) , Space = O(k)
+### Implementation 2 : Runtime = O(n) , Space = O(k)
 
 ```java
+import java.util.Arrays;
 public class App {
 
 	public static void main(String[] args) {
@@ -91,4 +92,43 @@ Above implementation have Runtime complexity of O(n) and space complexity of O(k
 ```
 Runtime Complexity = O(n)
 Space Complexity   = O(k)
+```
+
+### Implementation 3 : Runtime = O(n) , Space = O(1)
+
+```java
+import java.util.Arrays;
+
+public class App {
+
+	public static void main(String[] args) {
+		int[] input = { 1, 2, 3, 4, 5, 6, 7 };
+		rotate(input, 3);
+		System.out.println(Arrays.toString(input));
+	}
+
+	public static void rotate(int[] nums, int k) {
+		k = k % nums.length;
+		reverse(nums, nums.length - k, nums.length - 1);
+		reverse(nums, 0, nums.length - k - 1);
+		reverse(nums, 0, nums.length - 1);
+	}
+
+	public static void reverse(int[] nums, int start, int end) {
+		while (start < end) {
+			int temp = nums[start];
+			nums[start] = nums[end];
+			nums[end] = temp;
+			start++;
+			end--;
+		}
+	}
+}
+```
+
+Above implementation have Runtime complexity of O(n) and space complexity of O(1)
+
+```
+Runtime Complexity = O(n)
+Space Complexity   = O(1)
 ```
