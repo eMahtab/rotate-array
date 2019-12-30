@@ -21,7 +21,7 @@ rotate 1 steps to the right: [99,-1,-100,3]
 rotate 2 steps to the right: [3,99,-1,-100]
 ```
 
-### Implementation
+### Implementation 1 : Runtime = (kn) , Space = O(1)
 
 ```java
 import java.util.Arrays;
@@ -54,4 +54,41 @@ Above implementation have Runtime complexity of O(kn) and space complexity of O(
 ```
 Runtime Complexity = O(kn)
 Space Complexity   = O(1)
+```
+
+### Implementation 2 : Runtime = (n) , Space = O(k)
+
+```java
+public class App {
+
+	public static void main(String[] args) {
+		int[] input = {1, 2};
+		rotate(input, 3);
+		System.out.println(Arrays.toString(input));
+	}
+
+	public static void rotate(int[] nums, int k) {
+		k %= nums.length;
+		int length = nums.length;
+		int[] temp = new int[k];
+		for(int i = 0; i < k; i++) {
+			temp[i] = nums[length - k + i];
+		}
+		
+		for(int i = length - k - 1; i >= 0; i--) {
+			nums[i + k] = nums[i];
+		}
+		
+		for(int i = 0; i < k; i++) {
+			nums[i] = temp[i];
+		}
+	}
+}
+```
+
+Above implementation have Runtime complexity of O(n) and space complexity of O(k)
+
+```
+Runtime Complexity = O(n)
+Space Complexity   = O(k)
 ```
