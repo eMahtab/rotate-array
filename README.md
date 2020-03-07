@@ -21,6 +21,7 @@ rotate 1 steps to the right: [99,-1,-100,3]
 rotate 2 steps to the right: [3,99,-1,-100]
 ```
 
+
 ### Implementation 1 : Runtime = (kn) , Space = O(1)
 
 ```java
@@ -161,3 +162,6 @@ Above implementation have Runtime complexity of O(n) and space complexity of O(1
 Runtime Complexity = O(n)
 Space Complexity   = O(1)
 ```
+
+# Key Point :
+`k = k % nums.length;`
